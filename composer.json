@@ -1,0 +1,15 @@
+{
+    "name": "dapromfagundes/placar_jogos",
+    "autoload": {
+        "psr-4": {
+            "Dapromfagundes\\PlacarJogos\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "fagundes321",
+            "email": "victorfagundes123@gmail.com"
+        }
+    ],
+    "require": {}
+}

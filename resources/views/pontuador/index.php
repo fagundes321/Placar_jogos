@@ -1,6 +1,7 @@
-
-
     <?php require_once __DIR__ . '/../template/navbar.php'; ?>
+
+    <!-- inicio codigo -->
+
     <h1>Listando Jogadores</h1>
 
     <ul>
@@ -10,6 +11,5 @@
             </li>
         <?php endforeach ?>
     </ul>
-</body>
 
-</html>
+    <!-- inicio codigo -->

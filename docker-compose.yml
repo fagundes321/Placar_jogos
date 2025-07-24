@@ -10,26 +10,26 @@ services:
       - .:/var/www/html
     working_dir: /var/www/html
     ports:
-      - 661:80
+      - 999:80
     depends_on:
       - mysql-db
 
   mysql-db:
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: "123"
+      MYSQL_ROOT_PASSWORD: passwordroot
       MYSQL_DATABASE: placar_jogos
       MYSQL_USER: db_user
-      MYSQL_PASSWORD: "123"
+      MYSQL_PASSWORD: password
     ports:
-      - "3307:3306"
+      - "3306:3306"
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     links:
       - mysql-db
     ports:
-      - "662:80"
+      - "991:80"
     environment:
       PMA_HOST: mysql-db
-      MYSQL_ROOT_PASSWORD: "123"
+      MYSQL_ROOT_PASSWORD: passwordroot

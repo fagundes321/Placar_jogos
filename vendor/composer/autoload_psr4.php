@@ -6,5 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Dapromfagundes\\PlacarJogos\\' => array($baseDir . '/src'),
+    'Database\\' => array($baseDir . '/app/database'),
+    'App\\' => array($baseDir . '/app'),
 );

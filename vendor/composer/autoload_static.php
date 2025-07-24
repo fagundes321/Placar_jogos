@@ -9,19 +9,30 @@ class ComposerStaticInitbce9cb2a1975692953e65ed118f9b0ed
     public static $prefixLengthsPsr4 = array (
         'D' => 
         array (
-            'Dapromfagundes\\PlacarJogos\\' => 27,
+            'Database\\' => 9,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Dapromfagundes\\PlacarJogos\\' => 
+        'Database\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/app/database',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 
     public static $classMap = array (
+        'App\\Controllers\\PontuadorController' => __DIR__ . '/../..' . '/app/Controllers/PontuadorController.php',
+        'App\\Models\\Pontuador' => __DIR__ . '/../..' . '/app/Models/Pontuador.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Database\\Conn\\Conexao' => __DIR__ . '/../..' . '/app/database/Conn/Conexao.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -6,5 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controllers\\PontuadorController' => $baseDir . '/app/Controllers/PontuadorController.php',
+    'App\\Models\\Pontuador' => $baseDir . '/app/Models/Pontuador.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Database\\Conn\\Conexao' => $baseDir . '/app/database/Conn/Conexao.php',
 );

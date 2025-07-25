@@ -13,4 +13,5 @@ class PontuadorController
         include __DIR__ . '/../../resources/views/pontuador/index.php';
         
     }
+    
 }

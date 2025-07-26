@@ -6,8 +6,7 @@ use PDO;
 use PDOException;
 use Database\Conn\Conexao;
 
-class Pontuador
-{
+class CadastrarJogadores{
     private $pdo;
 
     public function __construct()
@@ -15,18 +14,7 @@ class Pontuador
         $this->pdo = Conexao::conectar();
     }
 
-    public function listarJogadores()
-    {
-        try {
-            $stmt = $this->pdo->query("SELECT * FROM placar_jogos.jogadores");
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            echo "Erro ao buscar jogadores: " . $e->getMessage();
-            return [];
-        }
-    }
-
-    public function adicionarJogadores($id_time, $jogador, $tag)
+     public function adicionarJogadores($id_time, $jogador, $tag)
     {
         try {
             $sql  = "INSERT INTO placar_jogos.jogadores (id_time, jogador, tag) VALUES (:id_time, :jogador, :tag)";
@@ -41,15 +29,5 @@ class Pontuador
             echo "Erro ao inserir o jogador" . $e->getMessage();   
             return false;       
         }
-    }
-
-    public function adicionarTempo($tempo, $id)
-    {
-        $sql = "UPDATE placa_jogos.jogadores SET tempo = :tempo where id = :id ";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':tempo' , $tempo);
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
-
     }
 }

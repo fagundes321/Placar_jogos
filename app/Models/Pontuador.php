@@ -45,6 +45,8 @@ class Pontuador
 
     public function adicionarTempo($tempo)
     {
-        $sql = $this->pdo->query("INSERT INTO placar_jogoso.jogadore (tempo) VALUES (:tempo,) ");
+        $sql = $this->pdo->query("UPDATE placa_jogos.jogadores SET tempo = :tempo where id = :id ");
+       
+
     }
 }

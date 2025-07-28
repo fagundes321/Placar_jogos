@@ -3,10 +3,22 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 
-// use App\Utils\View;
-
+use \App\Http\Router;
+use \App\Http\Response;
 use \App\Controllers\HomeController;
-echo HomeController::getHome();
+
+define('URL', 'http://localhost:999');
+
+$obRouter = new Router(URL);
+
+//ROTA HOME
+$obRouter->get('/',[
+    function(){
+        return new Response(200, HomeController::getHome());
+    }
+]);
+
+
 
 // $controller = new PontuadorController();
 // $controller->index();

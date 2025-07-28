@@ -1,4 +1,264 @@
-<h1>{{name}}</h1>
-<h2>{{description}}</h2>
-asfafasf
+<div class="painel-container">
+  <h1>👋 Bem-vindo, Administrador Geral!</h1>
+  <p>Você está logado no <strong>Sistema de Jogos</strong>.</p>
 
+  <div class="botoes-painel">
+    <a href="#" class="equipes">
+      <!-- <i class="fas fa-user-plus iconRegistrarVisitantes"></i> -->
+      Acessar Equipes
+    </a>
+
+    <a href="#" class="botao-relatorio">
+      <!-- <i class="fas fa-file-alt iconGerarRelatorioHome"></i> -->
+      Gerar Relatório
+    </a>
+
+    <a href="#" class="botao-pontuar">
+      <!-- <i class="fas fa-history iconHistorico"></i> -->
+      Pontuar
+    </a>
+
+    <a href="#" class="configuracao">
+      <!-- <i class="fas fa-sign-out-alt iconSairDoSistema"></i> -->
+      Configuração
+    </a>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #d7def4;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      /* Container principal do painel */
+      .painel-container {
+        background-color: #ffffff;
+        padding: 50px 40px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 90%;
+        max-width: 600px;
+        animation: fadeIn 0.4s ease-in-out;
+        transition: all 0.3s ease;
+        margin: 100px auto 30px auto;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .painel-container h1 {
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .painel-container p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 30px;
+      }
+
+      /* Botões do painel */
+      .botoes-painel {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      /* Botões padrão */
+      .botao-relatorio,
+      .botao-pontuar,
+      .equipes,
+      .configuracao {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 30px;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        color: white;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .botao-relatorio:hover,
+      .botao-pontuar:hover,
+      .equipes:hover,
+      .configuracao:hover,
+      .botao-relatorio:focus,
+      .botao-pontuar:focus,
+      .equipes:focus,
+      .configuracao:focus,
+      .botao-relatorio:active,
+      .botao-pontuar:active,
+      .equipes:active,
+      .configuracao:active {
+        text-decoration: none;
+      }
+
+      /* Botão Relatório */
+      .botao-relatorio {
+         /* color: white; */
+        background-color: #17a2b8;
+      }
+
+      .botao-relatorio:hover {
+        background-color: #138496;
+         color: white;
+        transform: scale(1.03);
+      }
+
+      /* Botão Histórico */
+      .botao-pontuar {
+        background-color: #333333;
+        padding: 12px 64px;
+      }
+
+      .botao-pontuar:hover {
+        background-color: #1f1f1f;
+         color: white;
+        transform: scale(1.03);
+      }
+
+      /* Botão Entrar/Cadastro */
+      .equipes {
+        background-color: #007bff;
+      }
+
+      .equipes:hover {
+        background-color: #0056b3;
+         color: white;
+        transform: scale(1.03);
+      }
+
+      /* Botão Sair do Sistema */
+      .configuracao {
+        background-color: #778004;
+      }
+
+      .configuracao:hover {
+        background-color: #595f05;
+         color: white;
+        transform: scale(1.03);
+      }
+
+      /* Ícones */
+      .iconRegistrarVisitantes,
+      .iconGerarRelatorioHome,
+      .iconHistorico,
+      .iconSairDoSistema {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Responsividade */
+      @media (max-width: 768px) {
+        .painel-container {
+          padding: 40px 30px;
+          margin-top: 60px;
+        }
+
+        .painel-container h1 {
+          font-size: 24px;
+        }
+
+        .painel-container p {
+          font-size: 15px;
+        }
+
+        .botao-pontuar {
+          padding: 12px 40px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .painel-container {
+          padding: 30px 20px;
+          border-radius: 12px;
+        }
+
+        .painel-container h1 {
+          font-size: 22px;
+        }
+
+        .painel-container p {
+          font-size: 14px;
+          margin-bottom: 20px;
+        }
+
+        .botoes-painel {
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .botao-relatorio,
+        .botao-pontuar,
+        .equipes,
+        .configuracao {
+          width: 100%;
+          font-size: 15px;
+          padding: 12px;
+        }
+
+        .iconRegistrarVisitantes,
+        .iconGerarRelatorioHome,
+        .iconHistorico,
+        .iconSairDoSistema {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .painel-container {
+          padding: 20px 15px;
+        }
+
+        .painel-container h1 {
+          font-size: 20px;
+        }
+
+        .painel-container p {
+          font-size: 13px;
+        }
+
+        .botao-relatorio,
+        .botao-pontuar,
+        .equipes,
+        .configuracao {
+          font-size: 14px;
+          padding: 10px;
+        }
+
+        .iconRegistrarVisitantes,
+        .iconGerarRelatorioHome,
+        .iconHistorico,
+        .iconSairDoSistema {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    </style>
+
+    <!-- <h1>{{name}}</h1>
+<h2>{{description}}</h2>
+asfafasf -->
+  </div>
+</div>

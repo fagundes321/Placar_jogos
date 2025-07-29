@@ -18,7 +18,8 @@ $obRouter->get('/',[
     }
 ]);
 
-
+// IMPRIME O RESPONSE DA ROTA
+$obRouter->run()->sedResponse();
 
 // $controller = new PontuadorController();
 // $controller->index();

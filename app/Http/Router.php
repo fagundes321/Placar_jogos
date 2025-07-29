@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use \Closure;
+use \Exception;
 
 class Router
 {
@@ -92,14 +93,62 @@ class Router
     }
 
     /**
+     * Método responsável por retornar a URI desconsiderando o prefixo
+     * @return string
+     */
+    private function getUri(){
+        // URI DA REQUEST
+        $uri = $this->request->getUri();
+        
+        // FATIA DA URI COM O PREFIXO
+        $xUri = strlen($this->prefix) ? explode($this->prefix,$uri) : [$uri];
+
+        // RETORNAR A URI SEM PREFIXO
+        return end($xUri);
+    }
+
+    /**
+     * Método responsável por retornar os dados da rota atual
+     * @return array
+     */
+
+    private function getRoute(){
+        // URI
+        $uri = $this->getUri();
+        
+        // METHOD
+        $httpMethod = $this->request->getHttpMethod();
+        
+        // VALIDA AS ROTAS
+        foreach ($this->routes as $patternRoute => $methods) {
+            if(preg_match($patternRoute, $uri)){
+                // verifica o método
+                if ($methods[$httpMethod]) {
+                    
+                    // retorno dos parâmetros da rota
+                    return $methods[$httpMethod];
+                }
+
+                throw new Exception("Método não é permitido", 405);
+            }
+        }
+        throw new Exception("URL não encontrada", 404);
+        
+    }
+
+    /**
      * Método responsável por executar a rota atual
      * @return Response
      */
     public function run(){
         try {
-            //code...
-        } catch () {
-            //throw $th;
+
+            // OBTEM A ROTA ATUAL
+            $route = $this->getRoute();
+
+
+        } catch (Exception $e) {
+            return new Response($e->getCode(), $e->getMessage());
         }
     }
 }

@@ -76,7 +76,7 @@ class Router
         }
 
         //PADRÃO DE VALIDAÇÃO DA URL
-        $patternRoute = '/^' . str_replace('/', '\/', $route) . '$/';
+        $patternRoute = '/^' . str_replace('/', '\/', $route). '$/';
 
         // ADICIONA A ROTA DENTRO DA CLASSE
         $this->routes[$patternRoute][$method] = $params;
@@ -112,7 +112,7 @@ class Router
         return $this->addRoute('PUT', $route, $params);
     }
 
-        /**
+    /**
      * Método responsável por definir uma rota de DELETE
      * @param string $route
      * @param array  $params
@@ -179,9 +179,17 @@ class Router
 
             // OBTEM A ROTA ATUAL
             $route = $this->getRoute();
-            echo '<pre>'; 
-            print_r($route); 
-            echo '</pre>'; exit;
+
+            // VERIFICA O CONTROLADOR
+            if (!isset($route['controller'])) {
+                throw new Exception('A URL não pôde ser processada', 500);
+            }
+
+            // ARGUMENTOS DA FUNÇÃO
+            $args = [];
+            
+            // RETORNA A EXECUÇÃO DA FUNÇÃO
+            return call_user_func_array($route['controller'], $args);
         } catch (Exception $e) {
             return new Response($e->getCode(), $e->getMessage());
         }

@@ -78,7 +78,7 @@ class Response
     /**
      * Método responsavel  por enviar a resposta para o usuário
      */
-    public function sedResponse()
+    public function sendResponse()
     {
         $this->sendHeaders();
 

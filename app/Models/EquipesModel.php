@@ -6,7 +6,7 @@ use PDO;
 use PDOException;
 use Database\Conn\Conexao;
 
-class Placar{
+class Equipes{
     private $pdo;
 
     public function __construct()
